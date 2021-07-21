@@ -1,1 +1,1 @@
-  web: sh setup.sh && streamlit run flower_webapp.py
+  web: sh setup.sh && streamlit run wbex.py
