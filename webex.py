@@ -1,32 +1,7 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Jul 20 11:02:18 2021
-
-@author: DHARMESH MISTRY
-"""
-
-import cv2
 import streamlit as st
-cascPath = "haarcascade_frontalface_default.xml"
-faceCascade = cv2.CascadeClassifier(cascPath)
-st.title("Webcam Live Feed")
-run = st.checkbox('Run')
-FRAME_WINDOW = st.image([])
-camera = cv2.VideoCapture(0)
-
-while run:
-    _, frame = camera.read()
-    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    faces = faceCascade.detectMultiScale(
-        gray,
-        scaleFactor=1.1,
-        minNeighbors=5,
-        minSize=(30, 30)
-    )
-    # Draw a rectangle around the faces
-    for (x, y, w, h) in faces:
-        cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 0, 255), 2)
-    FRAME_WINDOW.image(frame)
-else:
-    st.write('Stopped')
+st.title('Simple Streamlit App')
+st.text('Type a number in the box below')
+n = st.number_input('Number', step=1)
+st.write(f'{n} + 1 = {n+1}')
+s = st.text_input('Type a name in the box below')
+st.write(f'Hello {s}')
