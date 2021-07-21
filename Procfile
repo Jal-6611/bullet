@@ -1,1 +1,1 @@
-  web: sh setup.sh && streamlit run wbex.py
+  web: sh setup.sh && streamlit run webex.py
